@@ -7,7 +7,7 @@ class myEmployee
 
     public void setName(String n) //setter
     {
-        name = n;
+        this.name = n;
     }
 
     public String getName() //getter
@@ -17,7 +17,7 @@ class myEmployee
 
     public void setId(int i) //setter
     {
-        id = i;
+        this.id = i;
     }
 
     public int getId() //getter
