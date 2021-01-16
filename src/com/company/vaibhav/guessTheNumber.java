@@ -6,37 +6,46 @@ import java.util.Scanner;
 
 class guessNumber
 {
-    Random rand = new Random();
-    int limit = 51;
-    int random_int;
-    int guess;
+    int generatedNum;
+    int inputByUser;
+    int guessesAllowed = 0;
 
-    public guessNumber()
+    public int getNoOfGuesses()
     {
-        random_int = rand.nextInt(limit);
-
+        return guessesAllowed;
     }
-    public int takeUserInput()
+    public void setNoOfGuesses(int guessesAllowed)
+    {
+        this.guessesAllowed = guessesAllowed;
+    }
+    guessNumber()
+    {
+        Random rand = new Random();
+        this.generatedNum = rand.nextInt(100);
+    }
+    public void takeUserInput()
     {
         Scanner sc = new Scanner(System.in);
-        guess = sc.nextInt();
-        return guess;
+        System.out.print("Guess any number between 1 and 100: ");
+        inputByUser = sc.nextInt();
     }
-    public boolean isCorrectNumber(int guessN)
+    public boolean isCorrectNumber()
     {
-        if (random_int == guessN)
+        guessesAllowed++;
+        if (inputByUser == generatedNum)
         {
+            System.out.format("You guessed the number right! %d\nYou guessed it in %d attempts", generatedNum, guessesAllowed);
             return true;
         }
-        else
+        else if(inputByUser < generatedNum)
         {
-            if (Math.abs(random_int - guessN) >= 20)
-            {
-                System.out.println("Guess too far");
-                return false;
-            }
-            return false;
+            System.out.println("Number is smaller than the correct Number!!");
         }
+        else if(inputByUser > generatedNum)
+        {
+            System.out.println("Number is greater than the correct Number!!");
+        }
+        return false;
     }
 
 
@@ -46,20 +55,12 @@ public class guessTheNumber
     public static void main(String[] args)
     {
         System.out.println("Welcome to the Number Guessing Game!");
-        System.out.print("Guess any number between 1 and 50: ");
         guessNumber user1 = new guessNumber();
-        int number = user1.takeUserInput();
-        boolean check = user1.isCorrectNumber(number);
-
-
-        if (check)
+        boolean game = false;
+        while(!game)
         {
-            System.out.println("Your guess was correct!");
-        }
-        else
-        {
-            System.out.println("Incorrect Guess!");
-            System.out.println("The correct number was: " + user1.random_int);
+            user1.takeUserInput();
+            game = user1.isCorrectNumber();
         }
 
     }
