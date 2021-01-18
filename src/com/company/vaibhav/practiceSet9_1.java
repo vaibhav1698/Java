@@ -1,6 +1,6 @@
 package com.company.vaibhav;
 
-import org.w3c.dom.ls.LSOutput;
+
 
 import java.util.Scanner;
 
@@ -38,8 +38,8 @@ public class practiceSet9_1
         System.out.println("Enter height of the cylinder: ");
         c.setHeight(sc.nextInt());
 
-        double volume = 0.00d;
-        double surArea = 0.00d;
+        double volume;
+        double surArea;
 
         volume = Math.PI * Math.pow(c.getRadius(), 2) * c.getHeight();
         surArea = (2 * Math.PI * c.getRadius() * c.getHeight()) + (2 * Math.PI * Math.pow(c.getRadius(),2));
