@@ -1,5 +1,5 @@
 package com.company.vaibhav;
-import com.sun.security.jgss.GSSUtil;
+
 
 import java.util.Random;
 import java.util.Scanner;
@@ -65,3 +65,4 @@ public class guessTheNumber
 
     }
 }
+
