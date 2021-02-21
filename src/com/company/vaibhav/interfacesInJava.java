@@ -8,9 +8,15 @@ interface Bicycle
     void speedUp(int increment);
 }
 
-class avonCycle implements Bicycle
+interface Colour
+{
+    void cycleColour(String colour);
+}
+
+class avonCycle implements Bicycle, Colour
 {
     int speed = 7;
+    String colour = "Black";
     public void applyBrake(int decrement)
     {
         speed = speed - decrement;
@@ -18,6 +24,11 @@ class avonCycle implements Bicycle
     public void speedUp(int increment)
     {
         speed = speed + increment;
+    }
+    public void cycleColour(String colour1)
+    {
+        colour = colour1;
+        System.out.println("Colour of this Bicycle is: " + colour);
     }
 }
 
@@ -29,6 +40,10 @@ public class interfacesInJava
         avonCycle myCycle = new avonCycle();
 
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("Which colour is your Bicycle?");
+        String colour = sc.nextLine();
+        myCycle.cycleColour(colour);
         System.out.println("How much speed are you currently travelling at?");
         myCycle.speed = sc.nextInt();
 
