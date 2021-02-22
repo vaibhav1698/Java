@@ -24,6 +24,7 @@ public class arrays
         }
 
         //displaying the contents of the array in reverse order
+        //new commit
         for(int i = marks.length-1; i>=0; i--)
         {
             System.out.println(marks[i]);
